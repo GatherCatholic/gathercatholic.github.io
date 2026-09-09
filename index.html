@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -168,7 +167,7 @@
             <h2>Contact Us</h2>
             <p>If you have any questions, or want to learn more about Gather, please reach out to our leadership team:</p>
             <ul class="details-list">
-                <li><strong>Email:</strong> <a href="mailto:ne.ohio.catholic.young.adult@gmail.com">ne.ohio.catholic.young.adult@gmail.com</a></li>
+                <li><strong>Email:</strong> <a href="mailto:gathercatholic@protonmail.com">gathercatholic@protonmail.com</a></li>
             </ul>
         </section>
     </main>
