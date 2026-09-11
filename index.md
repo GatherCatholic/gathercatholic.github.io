@@ -124,8 +124,8 @@
     </style>
 </head>
 <body>
-
     <header>
+        <img src="gather_logo.jpg" alt="GATHER Logo" />
         <h1>Gather</h1>
         <p>A new community for adults in their 30s and 40s across the Diocese of Cleveland.</p>
     </header>
