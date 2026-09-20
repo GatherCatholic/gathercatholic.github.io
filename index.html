@@ -1,180 +1,537 @@
-<head>
+<!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gather | Catholic Community</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="description" content="Gather - A new community for Catholic adults in their 30s and 40s across the Diocese of Cleveland. Join our kickoff event!">
+    <meta name="theme-color" content="#1E4620">
+    <title>Gather | Catholic Adult Ministry Kickoff</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        /* 
-         * Internal CSS to ensure zero external calls.
-         * Uses system fonts for clean rendering across all devices.
-         */
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #c0392b;
-            --bg-color: #f4f6f7;
-            --text-color: #333333;
-            --white: #ffffff;
+            --primary-green: #1E4620;
+            --accent-gold: #D4AF37;
+            --bg-body: #e0e0e0;
+            --bg-canvas: #FCFCF9;
+            --text-dark: #1E4620;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+            --border-radius: 16px;
+            --nav-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(var(--nav-height) + 20px);
         }
 
         body {
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-body);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            /* Global Body Padding using clamp as requested */
+            padding: clamp(10px, 3vw, 40px);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        header {
-            background-color: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 3rem 1rem;
+        .main-container {
+            background-color: var(--bg-canvas);
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-soft);
+            /* Generous main container padding */
+            padding: clamp(30px, 5vw, 70px) clamp(20px, 6vw, 60px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 90vh;
+            position: relative;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 3rem;
-            letter-spacing: 1px;
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            color: var(--primary-green);
         }
 
-        header p {
-            margin: 0.5rem 0 0;
-            font-size: 1.2rem;
-            font-style: italic;
-            opacity: 0.9;
-        }
-
-        nav {
-            background-color: #1a252f;
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: var(--white);
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--secondary-color);
-        }
-
-        main {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
-        }
-
-        section {
-            background: var(--white);
-            padding: 2rem 2.5rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
         }
 
         h2 {
-            color: var(--primary-color);
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 0.5rem;
-            margin-top: 0;
+            font-size: clamp(1.25rem, 3vw, 2.2rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-green);
+            opacity: 0.9;
         }
 
-        ul {
-            list-style-type: none;
-            padding: 0;
+        h3 {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
         }
 
-        ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .details-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .details-list li:last-child {
-            border-bottom: none;
+        p {
+            font-size: clamp(1rem, 1.5vw, 1.125rem);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
         }
 
         a {
-            color: var(--secondary-color);
             text-decoration: none;
+            color: inherit;
+            transition: opacity 0.2s ease;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(252, 252, 249, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            height: var(--nav-height);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 1rem;
+            margin: calc(clamp(30px, 5vw, 70px) * -1) calc(clamp(20px, 6vw, 60px) * -1) 2rem calc(clamp(20px, 6vw, 60px) * -1);
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+            border-bottom: 1px solid rgba(30, 70, 32, 0.1);
+            z-index: 1000;
         }
 
-        footer {
+        .nav-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            padding: 0 0.5rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 1rem;
+        }
+
+        .nav-menu a {
+            font-weight: 600;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            padding: 0 1rem;
+            border-radius: 8px;
+        }
+        
+        .nav-menu a:hover {
+            background-color: rgba(30, 70, 32, 0.05);
+        }
+
+        .burger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            min-width: 48px;
+            min-height: 48px;
+            flex-direction: column;
+            justify-content: center;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .burger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-green);
+            transition: 0.3s ease;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .burger {
+                display: flex;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background-color: var(--bg-canvas);
+                flex-direction: column;
+                padding-top: 80px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+            .nav-menu.active {
+                right: 0;
+            }
+            .nav-menu li {
+                width: 100%;
+            }
+            .nav-menu a {
+                padding: 1rem 2rem;
+                width: 100%;
+                font-size: 1.2rem;
+            }
+            /* Burger animation */
+            .burger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+            .burger.active span:nth-child(2) { opacity: 0; }
+            .burger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+        }
+
+        .section-wrapper {
+            margin-bottom: 4rem;
+        }
+
+        .hero-section {
             text-align: center;
-            padding: 1.5rem;
-            background-color: var(--primary-color);
-            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hero-logo {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-green);
+            color: var(--bg-canvas);
+            font-weight: 700;
+            font-size: 1.125rem;
+            padding: 0 2rem;
+            min-height: 56px;
+            border-radius: 30px;
+            margin-top: 1.5rem;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 14px rgba(30, 70, 32, 0.2);
+        }
+
+        .cta-button:active {
+            transform: scale(0.98);
+        }
+
+        .info-block {
+            background-color: rgba(30, 70, 32, 0.03);
+            border: 1px solid rgba(30, 70, 32, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .info-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 600px) {
+            .info-row {
+                flex-direction: row;
+                align-items: baseline;
+            }
+            .info-label {
+                flex: 0 0 100px;
+            }
+        }
+
+        .info-label {
+            font-weight: 800;
+            color: var(--primary-green);
+            text-transform: uppercase;
             font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .text-gold {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            row-gap: 1.5rem;
+            column-gap: 2rem;
+            align-items: center;
+        }
+
+        .schedule-time {
+            color: var(--accent-gold);
+            font-weight: 800;
+            white-space: nowrap;
+            font-size: 1.1rem;
+        }
+
+        .schedule-event {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding-top: 3rem;
+            border-top: 2px solid rgba(30, 70, 32, 0.1);
+            margin-top: auto; /* Pushes footer to bottom */
+        }
+
+        .footer-left {
+            margin-right: auto;
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .footer-left img {
+            width: 100%;
+            max-width: 380px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .footer-center {
+            flex: 1 1 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        .bible-verse {
+            font-style: italic;
+            font-weight: 600;
+            max-width: 400px;
+            opacity: 0.85;
+            font-size: 0.95rem;
+        }
+
+        .footer-right {
+            flex: 1 1 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            min-height: 48px; /* 48px touch target */
+            padding: 0.5rem;
+            border-radius: 8px;
+            margin-left: -0.5rem;
+        }
+        
+        .social-link:hover {
+            background-color: rgba(30, 70, 32, 0.05);
+        }
+
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-green);
+            flex-shrink: 0;
+        }
+
+        .link-gold {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        @media (min-width: 1024px) {
+            .footer-left {
+                flex: 0 0 auto;
+                justify-content: flex-start;
+            }
+            .footer-right {
+                flex: 0 0 auto;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="gather_logo.jpg" alt="GATHER Logo" />
-        <h1>Gather</h1>
-        <p>A new community for adults in their 30s and 40s across the Diocese of Cleveland.</p>
-    </header>
 
-    <nav>
-        <a href="#about">About Us</a>
-        <a href="#meetings">Meeting Details</a>
-        <a href="#contact">Contact Us</a>
-    </nav>
-
-    <main>
-        <!-- About Us Section -->
-        <section id="about">
-            <h2>About Us</h2>
-            <p>Welcome to <strong>Gather</strong>, a new community for adults in their 30s and 40s across the Diocese of Cleveland.</p>
-        </section>
-
-        <!-- Meeting Details Section -->
-        <section id="meetings">
-            <h2>Meeting Details</h2>
-            <p>Join us for our kickoff event to meet local peers, learn about this new ministry, and help shape the direction of future events! Feel free to drop in or stay the whole time.</p>
-            <ul class="details-list">
-                <li><strong>When:</strong> Friday, October 16 | 6:30 PM – 8:30 PM</li>
-                <li><strong>Where:</strong> St. Charles Borromeo (Lower Hall) — Parma, OH</li>
-			 <li><strong>Details:</strong> Light refreshments provided. Drop-ins welcome!</li>
-                <li><strong>Schedule:</strong>
-                    <ul>
-					<li>&bull; 6:30 PM – Doors Open & Welcome</li>
-					<li>&bull; 7:00 PM – Highlights from the 30s & 40s Survey</li>
-					<li>&bull; 7:30 PM – Group Feedback & Future Event Brainstorming</li>
-					<li>&bull; 8:00 PM – Open Socializing & Connections</li>
-                    </ul>
-                </li>
+    <main class="main-container">
+        
+        <nav class="navbar">
+            <div class="nav-brand">Gather</div>
+            <button class="burger" id="burgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#info">Event Details</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
+        </nav>
+
+        <section id="hero" class="section-wrapper hero-section">
+            <img src="https://gathercatholic.github.io/gather_logo.jpg" alt="Gather Logo" class="hero-logo" onerror="this.src='https://placehold.co/400x200/FCFCF9/1E4620?text=Gather+Logo'">
+            <h1>Gather</h1>
+            <h2>A new community for adults in their 30s and 40s across the Diocese of Cleveland</h2>
+            <p style="max-width: 800px;">Join us for our kickoff event to meet local peers, learn about this new ministry, and help shape the direction of future events! Feel free to drop in or stay the whole time.</p>
+            <a href="#info" class="cta-button">Join the Kickoff</a>
         </section>
 
-        <!-- Contact Us Section -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>If you have any questions, or want to learn more about Gather, please reach out to our leadership team:</p>
-            <ul class="details-list">
-                <li><strong>Email:</strong> <a href="mailto:gathercatholic@protonmail.com">gathercatholic@protonmail.com</a></li>
-            </ul>
+        <section id="info" class="section-wrapper">
+            <div class="info-block">
+                <div class="info-row">
+                    <span class="info-label">When:</span>
+                    <span class="text-gold">Friday, October 16 | 6:30 PM – 8:30 PM</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Where:</span>
+                    <span>St. Charles Borromeo (Lower Hall) — Parma, OH</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">Details:</span>
+                    <span>Light refreshments provided. Drop-ins welcome!</span>
+                </div>
+            </div>
         </section>
+
+        <section id="schedule" class="section-wrapper">
+            <h3>Evening Schedule</h3>
+            <div class="schedule-grid">
+                <div class="schedule-time">6:30 PM</div>
+                <div class="schedule-event">Doors Open & Welcome</div>
+
+                <div class="schedule-time">7:00 PM</div>
+                <div class="schedule-event">Highlights from the 30s & 40s Survey</div>
+
+                <div class="schedule-time">7:30 PM</div>
+                <div class="schedule-event">Group Feedback & Future Event Brainstorming</div>
+
+                <div class="schedule-time">8:00 PM</div>
+                <div class="schedule-event">Open Socializing & Connections</div>
+            </div>
+        </section>
+
+        <footer id="contact" class="footer">
+            <div class="footer-left">
+                <img src="https://gathercatholic.github.io/gather_logo.jpg" alt="Gather Logo Footer" onerror="this.src='https://placehold.co/380x150/FCFCF9/1E4620?text=Gather+Logo'">
+            </div>
+            
+            <div class="footer-center">
+                <!-- Bible Icon SVG -->
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="var(--primary-green)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 4H7C5.89543 4 5 4.89543 5 6V18C5 19.1046 5.89543 20 7 20H21V4Z" opacity="0.2"/>
+                    <path d="M3 6C3 4.89543 3.89543 4 5 4H21V20H7C5.34315 20 4 18.6569 4 17V6H3Z" stroke="var(--primary-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <path d="M7 4V20" stroke="var(--primary-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 8H17" stroke="var(--primary-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 6V11" stroke="var(--primary-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="bible-verse">"For where two or three are gathered together in my name, there am I in the midst of them."<br>(Matthew 18:20, NABRE)</div>
+            </div>
+            
+            <div class="footer-right">
+                <a href="https://gathercatholic.github.io" class="social-link link-gold">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.43 4 16.05 4 12C4 11.38 4.08 10.78 4.22 10.22L9 15V16C9 17.1 9.9 18 11 18V19.93ZM17.9 17.39C17.64 16.58 16.9 16 16 16H15V13C15 12.45 14.55 12 14 12H8V10H10C10.55 10 11 9.55 11 9V7H13C14.1 7 15 6.1 15 5V4.59C17.93 5.77 20 8.64 20 12C20 14.08 19.2 15.97 17.9 17.39Z"/></svg>
+                    https://gathercatholic.github.io
+                </a>
+                
+                <a href="#" class="social-link">
+                    <!-- Instagram SVG -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm3.98-10.822a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                    </svg>
+                    @GatherCatholic
+                </a>
+                
+                <a href="#" class="social-link">
+                    <!-- Facebook SVG -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V7.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                    @GatherCatholicCLE
+                </a>
+                
+                <a href="mailto:GatherCatholic@protonmail.com" class="social-link">
+                    <!-- Email SVG -->
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"/>
+                    </svg>
+                    GatherCatholic@protonmail.com
+                </a>
+            </div>
+        </footer>
+
     </main>
 
-    <footer>
-        <p>&copy; 2026 Gather Catholic Community. All rights reserved.</p>
-    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const burgerBtn = document.getElementById('burgerBtn');
+            const navMenu = document.getElementById('navMenu');
+            const navLinks = document.querySelectorAll('.nav-menu a');
 
+            // Toggle Mobile Menu
+            burgerBtn.addEventListener('click', () => {
+                const isActive = navMenu.classList.toggle('active');
+                burgerBtn.classList.toggle('active');
+                burgerBtn.setAttribute('aria-expanded', isActive);
+            });
+
+            // Close mobile menu on link click
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    burgerBtn.classList.remove('active');
+                    burgerBtn.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Close mobile menu if clicked outside
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !burgerBtn.contains(e.target) && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    burgerBtn.classList.remove('active');
+                    burgerBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
