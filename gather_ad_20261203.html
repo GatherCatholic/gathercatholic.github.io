@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gather | Instagram Square Post (1080x1080)</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-green: #1E4620;
+            --accent-gold: #C59B27;
+            --bg-body: #1a1a1a;
+            --bg-canvas: #FCFCF9;
+            --text-dark: #1E4620;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Exact 1080x1080 Instagram Square Artboard */
+        .ig-canvas {
+            width: 1080px;
+            height: 1080px;
+            background-color: var(--bg-canvas);
+            padding: 52px 56px 48px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.45);
+            transform-origin: center center;
+        }
+
+        /* --- HEADER / BRANDING --- */
+        .header-section {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .brand-title {
+            font-size: 5.25rem;
+            font-weight: 800;
+            line-height: 0.98;
+            letter-spacing: -2px;
+            color: var(--primary-green);
+            margin-bottom: 12px;
+        }
+
+        .brand-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-green);
+            opacity: 0.92;
+            max-width: 860px;
+            line-height: 1.32;
+        }
+
+        .est-badge {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+        }
+
+        /* --- EVENT HERO HEADLINE --- */
+        .event-banner {
+            text-align: center;
+            padding: 22px 0;
+            border-top: 2px solid rgba(30, 70, 32, 0.14);
+            border-bottom: 2px solid rgba(30, 70, 32, 0.14);
+        }
+
+        .kickoff-kicker {
+            font-size: 1.55rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.6px;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+
+        .event-title {
+            font-size: 3.45rem;
+            font-weight: 800;
+            line-height: 1.12;
+            color: var(--primary-green);
+            letter-spacing: -0.5px;
+        }
+
+        /* --- INFO CARD --- */
+        .info-block {
+            background-color: rgba(30, 70, 32, 0.04);
+            border: 1.5px solid rgba(30, 70, 32, 0.14);
+            border-radius: 16px;
+            padding: 30px 38px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .info-row {
+            display: grid;
+            grid-template-columns: 125px 1fr;
+            align-items: baseline;
+            gap: 16px;
+            font-size: 1.38rem;
+            line-height: 1.38;
+        }
+
+        .info-label {
+            font-weight: 800;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            font-size: 1.12rem;
+            letter-spacing: 1.2px;
+        }
+
+        .info-value strong,
+        .text-gold {
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        .presented-by {
+            margin-top: 4px;
+            padding-top: 14px;
+            border-top: 1px dashed rgba(30, 70, 32, 0.22);
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            text-align: center;
+        }
+
+        /* --- FOOTER (LOGO + SCRIPTURE + SOCIALS) --- */
+        .footer {
+            display: grid;
+            grid-template-columns: 225px 1.05fr 1.05fr;
+            align-items: center;
+            gap: 24px;
+            padding-top: 4px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .footer-logo img {
+            width: 100%;
+            max-width: 220px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .footer-verse {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 8px;
+            padding: 0 18px;
+            border-left: 2px solid rgba(30, 70, 32, 0.14);
+            border-right: 2px solid rgba(30, 70, 32, 0.14);
+        }
+
+        .bible-icon {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+        }
+
+        .bible-verse {
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.04rem;
+            line-height: 1.38;
+            color: var(--primary-green);
+            opacity: 0.92;
+        }
+
+        .bible-ref {
+            display: block;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 0.92rem;
+            color: var(--accent-gold);
+            margin-top: 4px;
+        }
+
+        .footer-socials {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-green);
+            white-space: nowrap;
+        }
+
+        .social-item.highlight {
+            color: var(--accent-gold);
+        }
+
+        .social-item svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="ig-canvas" id="artboard">
+        
+        <!-- TOP: Brand Identity -->
+        <header class="header-section">
+            <h1 class="brand-title">Gather</h1>
+            <p class="brand-subtitle">A new community for adults in their 30s and 40s across the Diocese of Cleveland</p>
+            <span class="est-badge">Established 10/16/2026</span>
+        </header>
+
+        <!-- MIDDLE-TOP: Event Headline -->
+        <section class="event-banner">
+            <div class="kickoff-kicker">Summit &amp; Medina County Kickoff Event</div>
+            <h2 class="event-title">The Great Christmas Feast</h2>
+        </section>
+
+        <!-- MIDDLE-BOTTOM: Event Details Card -->
+        <section class="info-block">
+            <div class="info-row">
+                <span class="info-label">When</span>
+                <div class="info-value"><span class="text-gold">Thursday, December 3 | 7:00 PM – 9:00 PM</span></div>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Where</span>
+                <div class="info-value">
+                    <strong>St. Augustine Parish</strong> — City of God Faith Formation Center<br>
+                    633 West Paige Avenue, Barberton, OH 44203
+                </div>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Details</span>
+                <div class="info-value">
+                    <strong>How Medieval Christians Celebrated Christmas</strong><br>
+                    An evening of fascinating history, Catholic tradition, food, and fellowship.
+                </div>
+            </div>
+            <div class="presented-by">
+                Presented by St. Augustine + Gather
+            </div>
+        </section>
+
+        <!-- BOTTOM: Footer Logo + Scripture + Social Handles -->
+        <footer class="footer">
+            <div class="footer-logo">
+                <img src="https://gathercatholic.github.io/gather_logo.jpg" alt="Gather Logo" onerror="this.src='https://placehold.co/380x180/FCFCF9/1E4620?text=Gather+Logo'">
+            </div>
+
+            <div class="footer-verse">
+                <svg class="bible-icon" viewBox="0 0 24 24" fill="var(--primary-green)" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 4H7C5.89543 4 5 4.89543 5 6V18C5 19.1046 5.89543 20 7 20H21V4Z" opacity="0.2"/>
+                    <path d="M3 6C3 4.89543 3.89543 4 5 4H21V20H7C5.34315 20 4 18.6569 4 17V6H3Z" stroke="var(--primary-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    <path d="M7 4V20" stroke="var(--primary-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M11 8H17" stroke="var(--primary-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 6V11" stroke="var(--primary-green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <div class="bible-verse">
+                    &ldquo;For where two or three are gathered together in my name, there am I in the midst of them.&rdquo;
+                    <span class="bible-ref">Matthew 18:20 (NABRE)</span>
+                </div>
+            </div>
+
+            <div class="footer-socials">
+                <div class="social-item highlight">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM11 19.93C7.05 19.43 4 16.05 4 12C4 11.38 4.08 10.78 4.22 10.22L9 15V16C9 17.1 9.9 18 11 18V19.93ZM17.9 17.39C17.64 16.58 16.9 16 16 16H15V13C15 12.45 14.55 12 14 12H8V10H10C10.55 10 11 9.55 11 9V7H13C14.1 7 15 6.1 15 5V4.59C17.93 5.77 20 8.64 20 12C20 14.08 19.2 15.97 17.9 17.39Z"/></svg>
+                    <span>gathercatholic.github.io</span>
+                </div>
+                <div class="social-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm3.98-10.822a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    <span>@GatherCatholic</span>
+                </div>
+                <div class="social-item">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V7.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    <span>@GatherCatholicCLE</span>
+                </div>
+                <div class="social-item">
+                    <svg viewBox="0 0 24 24"><path d="M13.7364 5.85391L17.55 1.93056L19.7011 4.11663L15.636 8.11125H21.2273V11.1966H15.5678L19.7011 15.4237L17.55 17.5748L12 11.9566L6.45005 17.5748L4.29895 15.4237L8.43227 11.1966H2.77277V8.11125H8.36409L4.29895 4.11663L6.45005 1.93056L10.2636 5.85391V0H13.7364V5.85391ZM10.2636 15.2186H13.7364V24H10.2636V15.2186Z"/></svg>
+                    <span>linktr.ee/GatherCatholic</span>
+                </div>
+                <div class="social-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V8L12 13L20 8V18ZM12 11L4 6H20L12 11Z"/></svg>
+                    <span>GatherCatholic@protonmail.com</span>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Auto-scales the 1080x1080 artboard to fit your screen preview without altering its 1080x1080 layout -->
+    <script>
+        function fitArtboard() {
+            const artboard = document.getElementById('artboard');
+            const padding = 40;
+            const scale = Math.min(
+                (window.innerWidth - padding) / 1080,
+                (window.innerHeight - padding) / 1080,
+                1
+            );
+            artboard.style.transform = `scale(${scale})`;
+        }
+        window.addEventListener('resize', fitArtboard);
+        fitArtboard();
+    </script>
+</body>
+</html>
