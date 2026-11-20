@@ -156,12 +156,12 @@
             text-align: center;
         }
 
-        /* --- FOOTER (LOGO + SCRIPTURE + SOCIALS) --- */
+        /* --- FOOTER (4-COLUMN: LOGO + SCRIPTURE + SOCIALS + QR CODE) --- */
         .footer {
             display: grid;
-            grid-template-columns: 225px 1.05fr 1.05fr;
+            grid-template-columns: 170px 1fr auto 135px;
             align-items: center;
-            gap: 24px;
+            gap: 18px;
             padding-top: 4px;
         }
 
@@ -173,9 +173,10 @@
 
         .footer-logo img {
             width: 100%;
-            max-width: 220px;
+            max-width: 170px;
             height: auto;
             border-radius: 8px;
+            display: block;
         }
 
         .footer-verse {
@@ -183,23 +184,23 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 8px;
-            padding: 0 18px;
+            gap: 6px;
+            padding: 0 16px;
             border-left: 2px solid rgba(30, 70, 32, 0.14);
             border-right: 2px solid rgba(30, 70, 32, 0.14);
         }
 
         .bible-icon {
-            width: 38px;
-            height: 38px;
+            width: 34px;
+            height: 34px;
             flex-shrink: 0;
         }
 
         .bible-verse {
             font-style: italic;
             font-weight: 600;
-            font-size: 1.04rem;
-            line-height: 1.38;
+            font-size: 0.94rem;
+            line-height: 1.35;
             color: var(--primary-green);
             opacity: 0.92;
         }
@@ -208,7 +209,7 @@
             display: block;
             font-style: normal;
             font-weight: 700;
-            font-size: 0.92rem;
+            font-size: 0.86rem;
             color: var(--accent-gold);
             margin-top: 4px;
         }
@@ -216,15 +217,17 @@
         .footer-socials {
             display: flex;
             flex-direction: column;
-            gap: 9px;
+            gap: 8px;
+            padding-right: 16px;
+            border-right: 2px solid rgba(30, 70, 32, 0.14);
         }
 
         .social-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--primary-green);
             white-space: nowrap;
         }
@@ -234,10 +237,22 @@
         }
 
         .social-item svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             fill: currentColor;
             flex-shrink: 0;
+        }
+
+        .footer-qr {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .footer-qr img {
+            width: 135px;
+            height: 135px;
+            display: block;
         }
     </style>
 </head>
@@ -283,7 +298,7 @@
             </div>
         </section>
 
-        <!-- BOTTOM: Footer Logo + Scripture + Social Handles -->
+        <!-- BOTTOM: Footer Logo + Scripture + Social Handles + QR Code -->
         <footer class="footer">
             <div class="footer-logo">
                 <img src="https://gathercatholic.github.io/gather_logo.jpg" alt="Gather Logo" onerror="this.src='https://placehold.co/380x180/FCFCF9/1E4620?text=Gather+Logo'">
@@ -325,6 +340,10 @@
                     <span>GatherCatholic@protonmail.com</span>
                 </div>
             </div>
+
+            <div class="footer-qr">
+                <img src="qr-code-20261203.png" alt="Event QR Code">
+            </div>
         </footer>
 
     </main>
@@ -346,3 +365,4 @@
     </script>
 </body>
 </html>
+```[cite: 1, 2]
